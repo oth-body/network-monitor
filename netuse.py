@@ -1,10 +1,8 @@
-
-#!/usr/bin/env python
-
 import time
 import psutil
+import datetime
+import csv
 
-# Initialize variables to store network usage data
 prev_sent = 0
 prev_recv = 0
 
@@ -24,6 +22,10 @@ while True:
 
     # Print network usage data
     print("Sent: {sent_diff/1024}KB/s, Received: {recv_diff/1024}KB/s")
+
+    # Print 'close with Ctrl +C' every minute
+    if time.time() % 3 == 0:
+        print("close with Ctrl +C")
 
     # Sleep for 1 second before checking usage again
     time.sleep(1)
